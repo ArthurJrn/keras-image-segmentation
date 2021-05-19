@@ -1,0 +1,55 @@
+# Configuration file for the training and inferance of segmentation models.
+
+# Model settings
+model: 
+  name: unet
+  pooling_number: 1
+  layers_before_pooling: 1
+  block_type: residual # can be standard or residual
+  padding_type: same
+  normalization: true
+  input_size:
+    width: 256
+    height: 256
+    channels: 1
+
+
+dataset:
+  train_path: "data/membrane_dataset/train"
+  test_path: "data/membrane_dataset/test/images"
+
+# Mode can be train or predict
+mode: train
+
+# Use only in train mode
+pretrained: False
+pretrained_weights_path: ""
+
+# Use only in predict mode
+model_path: "results/unet-model-membrane-01.hdf5"
+save_predictions_images: True
+
+# Training hyperparameters
+hyperparameters:
+  lr: 0.0001
+  loss: binary_crossentropy
+  metrics: accuracy
+  epochs: 2
+  steps_per_epoch: 10
+  batch_size: 2
+
+data_augmentation: True
+
+data_augmentation_params:
+  width_shift_range: 0.05
+  height_shift_range: 0.05
+  shear_range: 0.05
+  zoom_range: 0.05
+  horizontal_flip: true
+  fill_mode: "nearest"
+
+result_path: "results/"
+
+log_dir: "logs/scalars"
+
+
