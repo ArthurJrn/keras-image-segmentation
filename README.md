@@ -2,16 +2,6 @@
 
 The architecture was inspired by [U-Net: Convolutional Networks for Biomedical Image Segmentation](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/).
 
----
-## Answers to the two deep learning questions
-
-### Question 1
-
-Indeed using the same dataset for training and validation is not a good idea, the difference between the training loss and validation loss is normal. The training is computed by comparing the network"s ou tput to a given input of the training dataset to the label of this input. Validation loss is computed by comparing the network"s output to a given input of the validation dataset to the label of this input. But during the training phase, the weights of the networks are updated: this is the learning proccess of a network, done by backpropagation. Therefore, the weights during the forward pass of an input in the training phase and the weights during the forward pass an the same input in the validation phase can be different, that"s why the two loss have different values.
-
-### Question 2
-
-This behaviour comes from batch normalization which does not have the same behaviour in the training phase and in the inference phase in the deep learning frameworks. Even with same weights and on the same tiles, as the batch normalization operation is different, we can have different results. See https://keras.io/api/layers/normalization_layers/batch_normalization/ for the explanation of this behaviour in Keras.
 
 ## Overview
 
