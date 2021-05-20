@@ -2,6 +2,7 @@
 
 The architecture was inspired by [U-Net: Convolutional Networks for Biomedical Image Segmentation](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/).
 
+This repo contains a modulable implémentation of a Unet architecture. You can choose the configuration of the model using a Yaml File. My work in based on [this repo](https://github.com/zhixuhao/unet).
 
 ## Overview
 
